@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>habbakhatoonsaffronhub.com </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f2fbf5',
+                            100: '#e1f6e8',
+                            500: '#22c55e',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        gold: {
+                            500: '#d4af37',
+                            600: '#b5952f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafaf9;
+        }
+        h1, h2, h3, h4, h5, h6, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes slideUpFade {
+            0% { transform: translateY(100%); opacity: 0; }
+            10% { transform: translateY(0); opacity: 1; }
+            90% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+        .toast-enter {
+            animation: slideUpFade 3s ease-in-out forwards;
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-800 pb-20 md:pb-0">
+
+    <header class="bg-brand-900 text-white sticky top-0 z-40 shadow-md">
+        <div class="bg-brand-800 text-center py-1 text-xs font-medium tracking-wide">
+            Habba Khatoon Saffron Hub Provides Kashmir’s Finest Organic Selection.
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" onclick="switchView('home')" class="flex flex-col">
+                        <span class="text-lg md:text-xl font-bold brand-font text-gold-500 tracking-wider">HABBA KHATOON</span>
+                        <span class="text-[10px] md:text-xs uppercase tracking-widest text-brand-100 font-medium">Saffron Hub</span>
+                    </a>
+                </div>
+
+                <nav class="hidden lg:flex flex-1 justify-center space-x-8 items-center px-4">
+                    <a href="#" onclick="switchView('home')" class="text-white hover:text-gold-500 font-medium transition-colors text-sm uppercase tracking-wide">Home</a>
+                    <a href="#" onclick="switchView('shop')" class="text-brand-100 hover:text-gold-500 transition-colors text-sm uppercase tracking-wide">Shop</a>
+                    <a href="#" onclick="switchView('gallery')" class="text-brand-100 hover:text-gold-500 transition-colors text-sm uppercase tracking-wide">Gallery</a>
+                    <a href="#" onclick="switchView('about')" class="text-brand-100 hover:text-gold-500 transition-colors text-sm uppercase tracking-wide">About Us</a>
+                    <a href="#" onclick="switchView('contact')" class="text-brand-100 hover:text-gold-500 transition-colors text-sm uppercase tracking-wide">Contact</a>
+                </nav>
+
+                <div class="hidden md:flex flex-1 lg:flex-none lg:w-64 relative ml-auto mr-6 lg:mr-8">
+                    <input type="text" id="desktop-search-input" placeholder="Search..." onkeydown="if(event.key === 'Enter') handleSearch(this.value)" class="w-full py-1.5 pl-4 pr-10 rounded-full bg-brand-800 text-white placeholder-brand-100 border border-brand-700 focus:outline-none focus:ring-2 focus:ring-gold-500 transition-all text-sm">
+                    <button onclick="handleSearch(document.getElementById('desktop-search-input').value)" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-brand-100 hover:text-gold-500">
+                        <i class="fas fa-search text-sm"></i>
+                    </button>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-5 flex-shrink-0">
+                    <div class="relative" id="desktop-user-container">
+                        <button type="button" onclick="toggleUserDropdown('desktop', event)" class="text-brand-100 hover:text-gold-500 transition focus:outline-none p-2">
+                            <i class="far fa-user text-xl pointer-events-none"></i>
+                        </button>
+                        <div id="desktop-user-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg py-2 border border-gray-100 z-50">
+                            <div class="px-4 py-3 border-b border-gray-50">
+                                <p class="text-sm font-medium text-gray-900 user-welcome-text">Welcome</p>
+                            </div>
+                            <div id="desktop-auth-menu-items">
+                                <a href="#" onclick="openLoginModal()" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-800 transition"><i class="fas fa-sign-in-alt w-6 text-gray-400 text-center"></i> Login / Register</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="switchView('wishlist')" class="text-brand-100 hover:text-gold-500 transition relative p-2">
+                        <i class="far fa-heart text-xl pointer-events-none"></i>
+                        <span id="desktop-wishlist-badge" class="absolute -top-0.5 right-0 bg-gold-500 text-brand-900 text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button onclick="switchView('cart')" class="text-brand-100 hover:text-gold-500 transition relative p-2">
+                        <i class="fas fa-shopping-bag text-xl pointer-events-none"></i>
+                        <span id="desktop-cart-badge" class="absolute -top-0.5 right-0 bg-gold-500 text-brand-900 text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center hidden">0</span>
+                    </button>
+                </div>
+
+                <div class="md:hidden flex items-center space-x-2">
+                    <div class="relative" id="mobile-user-container">
+                        <button type="button" onclick="toggleUserDropdown('mobile', event)" class="text-brand-100 p-2 hover:text-gold-500 transition focus:outline-none">
+                            <i class="far fa-user text-xl pointer-events-none"></i>
+                        </button>
+                        <div id="mobile-user-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg py-2 border border-gray-100 z-50">
+                            <div class="px-4 py-3 border-b border-gray-50">
+                                <p class="text-sm font-medium text-gray-900 user-welcome-text">Welcome</p>
+                            </div>
+                            <div id="mobile-auth-menu-items">
+                                <a href="#" onclick="openLoginModal()" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-800 transition"><i class="fas fa-sign-in-alt w-6 text-gray-400 text-center"></i> Login / Register</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="toggleMobileSearch()" class="text-brand-100 p-2 hover:text-gold-500 transition">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-search-bar" class="hidden absolute top-full left-0 w-full bg-white p-4 shadow-md border-b border-gray-200">
+            <div class="relative">
+                <input type="text" id="mobile-search-input" placeholder="Search products..." onkeydown="if(event.key === 'Enter') { handleSearch(this.value); toggleMobileSearch(); }" class="w-full py-2 pl-4 pr-10 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                <button onclick="handleSearch(document.getElementById('mobile-search-input').value); toggleMobileSearch();" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="view-home">
+            <section class="relative bg-brand-900 text-white overflow-hidden">
+                <div class="absolute inset-0 opacity-20">
+                    <img src="https://placehold.co/1920x800/14532d/22c55e?text=Saffron+Fields+Background" alt="Background" class="w-full h-full object-cover">
+                </div>
+                
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center text-center">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold brand-font mb-4 text-gold-500">Welcome to HABBA KHATOON SAFFRON HUB</h1>
+                    <p class="text-lg md:text-xl max-w-2xl text-brand-50 mb-8 font-light">Experience the world's finest Saffron, pure Shilajit, and premium dry fruits directly from the valleys of Pampore.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#" onclick="switchView('shop')" class="bg-gold-500 text-brand-900 hover:bg-gold-600 px-8 py-3 rounded-full font-semibold transition-colors duration-300 shadow-lg inline-flex items-center space-x-2">
+                            <span>Shop Collection</span>
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#" onclick="switchView('about')" class="bg-brand-800 text-white hover:bg-brand-700 border border-brand-700 px-8 py-3 rounded-full font-semibold transition-colors duration-300 shadow-lg inline-flex items-center space-x-2">
+                            <span>Our Story</span>
+                            <i class="fas fa-book-open text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold brand-font text-brand-900 mb-4">Shop by Category</h2>
+                        <div class="w-24 h-1 bg-gold-500 mx-auto mb-4"></div>
+                        <p class="text-gray-600">Discover our exclusive range of natural Kashmiri delicacies</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-8 justify-items-center max-w-5xl mx-auto">
+                        <div onclick="switchView('shop')" class="group cursor-pointer flex flex-col items-center w-full max-w-[160px]">
+                            <div class="relative overflow-hidden rounded-full w-28 h-28 md:w-36 md:h-36 shadow-sm ring-4 ring-transparent group-hover:ring-brand-100 group-hover:shadow-lg transition-all duration-300 mb-4">
+                                <img src="https://placehold.co/400x400/166534/d4af37?text=Royal+Dry+Fruits" alt="Royal Dry Fruits" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <h3 class="text-brand-900 brand-font font-bold text-sm md:text-base text-center tracking-wide group-hover:text-gold-600 transition-colors leading-tight">ROYAL DRY FRUITS</h3>
+                        </div>
+
+                        <div onclick="switchView('shop')" class="group cursor-pointer flex flex-col items-center w-full max-w-[160px]">
+                            <div class="relative overflow-hidden rounded-full w-28 h-28 md:w-36 md:h-36 shadow-sm ring-4 ring-transparent group-hover:ring-brand-100 group-hover:shadow-lg transition-all duration-300 mb-4">
+                                <img src="https://placehold.co/400x400/166534/d4af37?text=Beauty+Care" alt="Natural Beauty Care" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <h3 class="text-brand-900 brand-font font-bold text-sm md:text-base text-center tracking-wide group-hover:text-gold-600 transition-colors leading-tight">NATURAL BEAUTY CARE</h3>
+                        </div>
+
+                        <div onclick="switchView('shop')" class="group cursor-pointer flex flex-col items-center w-full max-w-[160px]">
+                            <div class="relative overflow-hidden rounded-full w-28 h-28 md:w-36 md:h-36 shadow-sm ring-4 ring-transparent group-hover:ring-brand-100 group-hover:shadow-lg transition-all duration-300 mb-4">
+                                <img src="https://placehold.co/400x400/166534/d4af37?text=Kashmiri+Spices" alt="Kashmiri Spices" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <h3 class="text-brand-900 brand-font font-bold text-sm md:text-base text-center tracking-wide group-hover:text-gold-600 transition-colors leading-tight">KASHMIRI SPICES</h3>
+                        </div>
+
+                        <div onclick="switchView('shop')" class="group cursor-pointer flex flex-col items-center w-full max-w-[160px]">
+                            <div class="relative overflow-hidden rounded-full w-28 h-28 md:w-36 md:h-36 shadow-sm ring-4 ring-transparent group-hover:ring-brand-100 group-hover:shadow-lg transition-all duration-300 mb-4">
+                                <img src="https://placehold.co/400x400/166534/d4af37?text=Dry+Fruit+Choc" alt="Dry Fruits Chocolates" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <h3 class="text-brand-900 brand-font font-bold text-sm md:text-base text-center tracking-wide group-hover:text-gold-600 transition-colors leading-tight">DRY FRUITS CHOCOLATES</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-brand-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold brand-font text-brand-900 mb-4">Our Bestsellers</h2>
+                        <div class="w-24 h-1 bg-gold-500 mx-auto mb-4"></div>
+                        <p class="text-gray-600">Handpicked favorites loved by our customers</p>
+                    </div>
+                    
+                    <div id="featured-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+                    
+                    <div class="text-center mt-12">
+                        <button onclick="switchView('shop')" class="inline-flex items-center space-x-2 bg-brand-900 text-white px-8 py-3 rounded-full hover:bg-gold-500 hover:text-brand-900 transition-colors duration-300 shadow-md font-medium group">
+                            <span>View All Products</span>
+                            <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 md:py-24 bg-white overflow-hidden relative">
+                <div class="absolute -right-24 top-10 opacity-5 text-brand-900 text-[20rem] pointer-events-none">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                        <div class="w-full md:w-1/2 relative group">
+                            <div class="absolute -inset-4 bg-brand-50 rounded-3xl transform rotate-3 scale-105 transition-transform duration-500 group-hover:rotate-6 border border-brand-100"></div>
+                            <img src="https://placehold.co/800x600/14532d/d4af37?text=Authentic+Kashmiri+Harvest" alt="Kashmiri Harvest" class="relative rounded-2xl shadow-xl w-full object-cover aspect-[4/3] transform transition-transform duration-500 group-hover:-translate-y-1">
+                            <div class="absolute -bottom-6 -right-2 md:-right-6 bg-gold-500 text-brand-900 p-4 md:p-5 rounded-xl shadow-lg text-center transform group-hover:scale-105 transition-transform">
+                                <span class="block text-2xl md:text-3xl font-bold brand-font leading-none">40+</span>
+                                <span class="block text-xs uppercase tracking-wider font-semibold mt-1">Years of Trust</span>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 flex flex-col justify-center mt-8 md:mt-0">
+                            <span class="text-gold-600 font-bold text-sm mb-3 uppercase tracking-widest flex items-center">
+                                <span class="w-8 h-[2px] bg-gold-500 mr-3"></span> Our Heritage
+                            </span>
+                            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold brand-font text-brand-900 mb-6 leading-tight">The Purest Gold from the Valleys of Kashmir</h2>
+                            <p class="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
+                                At Habba Khatoon Saffron Hub, we bring you more than just dry fruits and spices—we bring you a legacy. Nestled in the fertile soils of Chandhara, Pampore, our saffron is meticulously handpicked at dawn to preserve its profound aroma, rich flavor, and vibrant color.
+                            </p>
+                            <p class="text-gray-600 text-base md:text-lg mb-8 leading-relaxed">
+                                Every strand of saffron, every walnut, and every almond tells a story of generations of careful cultivation. We take pride in delivering 100% natural, unadulterated wellness directly from our farms right to your doorstep.
+                            </p>
+                            <div>
+                                <a href="#" onclick="switchView('about')" class="inline-flex items-center space-x-2 text-brand-800 font-semibold hover:text-gold-600 transition-colors group">
+                                    <span class="border-b-2 border-brand-800 group-hover:border-gold-600 pb-1 transition-colors">Discover Our Story</span>
+                                    <i class="fas fa-arrow-right transform group-hover:translate-x-2 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-brand-50/50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <span class="text-gold-600 font-bold text-sm uppercase tracking-widest mb-2 block">Fresh From The Valley</span>
+                        <h2 class="text-3xl md:text-4xl font-bold brand-font text-brand-900 mb-4">New Arrivals</h2>
+                        <div class="w-24 h-1 bg-gold-500 mx-auto mb-4"></div>
+                        <p class="text-gray-600 text-sm md:text-base">Explore our newest harvest and special organic additions.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- New Arrival Item 1 -->
+                        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden relative group flex flex-col h-full">
+                            <span class="absolute top-4 left-4 bg-brand-800 text-white text-xs font-bold px-3 py-1 rounded-full z-10">New Arrival</span>
+                            <div class="relative h-64 overflow-hidden bg-gray-50">
+                                <img src="https://placehold.co/400x400/166534/d4af37?text=Saffron+Honey" alt="Raw Saffron Infused Honey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="text-xs text-gray-500 mb-2">250 Grams</span>
+                                <h3 class="brand-font text-xl font-bold text-gray-900 mb-2 line-clamp-2">Raw Saffron Infused Honey</h3>
+                                <div class="mt-auto pt-4 flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-brand-900">₹650</span>
+                                    <button onclick="addToCart(5)" class="bg-brand-50 text-brand-800 hover:bg-brand-800 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <button onclick="addToCart(5)" class="w-full mt-4 bg-brand-800 text-white hover:bg-brand-900 py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2">
+                                    <i class="fas fa-shopping-bag text-sm"></i>
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- New Arrival Item 2 -->
+                        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden relative group flex flex-col h-full">
+                            <span class="absolute top-4 left-4 bg-brand-800 text-white text-xs font-bold px-3 py-1 rounded-full z-10">New Arrival</span>
+                            <div class="relative h-64 overflow-hidden bg-gray-50">
+                                <img src="https://placehold.co/400x400/166534/d4af37?text=Sea+Buckthorn" alt="Wild Sea Buckthorn Berries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="text-xs text-gray-500 mb-2">200 Grams</span>
+                                <h3 class="brand-font text-xl font-bold text-gray-900 mb-2 line-clamp-2">Wild Sea Buckthorn Berries</h3>
+                                <div class="mt-auto pt-4 flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-brand-900">₹550</span>
+                                    <button onclick="addToCart(6)" class="bg-brand-50 text-brand-800 hover:bg-brand-800 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <button onclick="addToCart(6)" class="w-full mt-4 bg-brand-800 text-white hover:bg-brand-900 py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2">
+                                    <i class="fas fa-shopping-bag text-sm"></i>
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- New Arrival Item 3 -->
+                        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden relative group flex flex-col h-full">
+                            <span class="absolute top-4 left-4 bg-brand-800 text-white text-xs font-bold px-3 py-1 rounded-full z-10">New Arrival</span>
+                            <div class="relative h-64 overflow-hidden bg-gray-50">
+                                <img src="https://placehold.co/400x400/166534/d4af37?text=Kashmiri+Kahwa" alt="Kashmiri Kahwa Green Tea" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="text-xs text-gray-500 mb-2">250 Grams</span>
+                                <h3 class="brand-font text-xl font-bold text-gray-900 mb-2 line-clamp-2">Kashmiri Kahwa Green Tea</h3>
+                                <div class="mt-auto pt-4 flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-brand-900">₹450</span>
+                                    <button onclick="addToCart(7)" class="bg-brand-50 text-brand-800 hover:bg-brand-800 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <button onclick="addToCart(7)" class="w-full mt-4 bg-brand-800 text-white hover:bg-brand-900 py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2">
+                                    <i class="fas fa-shopping-bag text-sm"></i>
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- New Arrival Item 4 -->
+                        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden relative group flex flex-col h-full">
+                            <span class="absolute top-4 left-4 bg-brand-800 text-white text-xs font-bold px-3 py-1 rounded-full z-10">New Arrival</span>
+                            <div class="relative h-64 overflow-hidden bg-gray-50">
+                                <img src="https://placehold.co/400x400/166534/d4af37?text=Saffron+Ubtan" alt="Pure Saffron Glow Face Ubtan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="text-xs text-gray-500 mb-2">100 Grams</span>
+                                <h3 class="brand-font text-xl font-bold text-gray-900 mb-2 line-clamp-2">Pure Saffron Glow Face Ubtan</h3>
+                                <div class="mt-auto pt-4 flex items-center justify-between">
+                                    <span class="text-2xl font-bold text-brand-900">₹599</span>
+                                    <button onclick="addToCart(10)" class="bg-brand-50 text-brand-800 hover:bg-brand-800 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <button onclick="addToCart(10)" class="w-full mt-4 bg-brand-800 text-white hover:bg-brand-900 py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2">
+                                    <i class="fas fa-shopping-bag text-sm"></i>
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-brand-900 text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center max-w-4xl mx-auto mb-16 relative">
+                        <i class="fas fa-quote-left text-brand-700 text-4xl absolute -top-4 -left-6 md:-left-10 opacity-50"></i>
+                        <p class="text-xl md:text-3xl brand-font text-white leading-relaxed italic relative z-10">
+                            We carefully source premium organic products from the pure valleys of Kashmir, delivering natural goodness you can trust.
+                        </p>
+                        <i class="fas fa-quote-right text-brand-700 text-4xl absolute -bottom-4 -right-6 md:-right-10 opacity-50"></i>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 text-center">
+                        <div class="flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
+                            <div class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-3">40<span class="text-3xl md:text-4xl">+</span></div>
+                            <div class="text-xs md:text-sm text-brand-100 uppercase tracking-widest font-medium">Years of<br>Experience</div>
+                        </div>
+                        <div class="flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
+                            <div class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-3">50k<span class="text-3xl md:text-4xl">+</span></div>
+                            <div class="text-xs md:text-sm text-brand-100 uppercase tracking-widest font-medium">Happy<br>Customers</div>
+                        </div>
+                        <div class="flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
+                            <div class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-3 flex items-center justify-center">
+                                5<i class="fas fa-star text-2xl md:text-3xl ml-2 text-gold-500"></i>
+                            </div>
+                            <div class="text-xs md:text-sm text-brand-100 uppercase tracking-widest font-medium">Average<br>Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-white border-b border-gray-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-gold-600 font-bold text-sm uppercase tracking-widest mb-2 block">Why Choose Us</span>
+                        <h2 class="text-3xl md:text-4xl font-bold brand-font text-brand-900 mb-4">Why Choose Habba Khatoon Saffron Hub</h2>
+                        <p class="text-gray-600 text-base md:text-lg">Bringing you the finest selection of premium dry fruits, carefully sourced for exceptional quality, rich flavor, and guaranteed freshness you can trust.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-brand-50 p-8 rounded-2xl border border-brand-100 text-center hover:shadow-lg transition group">
+                            <div class="w-16 h-16 bg-white text-brand-800 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl shadow-sm group-hover:bg-brand-800 group-hover:text-white transition-colors">
+                                🌿
+                            </div>
+                            <h3 class="text-xl font-bold brand-font text-brand-900 mb-3">100% Organic</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">All our products are certified organic and sourced from trusted farmers.</p>
+                        </div>
+
+                        <div class="bg-brand-50 p-8 rounded-2xl border border-brand-100 text-center hover:shadow-lg transition group">
+                            <div class="w-16 h-16 bg-white text-brand-800 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl shadow-sm group-hover:bg-brand-800 group-hover:text-white transition-colors">
+                                🏆
+                            </div>
+                            <h3 class="text-xl font-bold brand-font text-brand-900 mb-3">Premium Quality</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">We ensure only the finest quality reaches your doorstep.</p>
+                        </div>
+
+                        <div class="bg-brand-50 p-8 rounded-2xl border border-brand-100 text-center hover:shadow-lg transition group">
+                            <div class="w-16 h-16 bg-white text-brand-800 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl shadow-sm group-hover:bg-brand-800 group-hover:text-white transition-colors">
+                                🛡️
+                            </div>
+                            <h3 class="text-xl font-bold brand-font text-brand-900 mb-3">No Preservatives</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Our products contain no artificial preservatives or additives.</p>
+                        </div>
+
+                        <div class="bg-brand-50 p-8 rounded-2xl border border-brand-100 text-center hover:shadow-lg transition group">
+                            <div class="w-16 h-16 bg-white text-brand-800 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl shadow-sm group-hover:bg-brand-800 group-hover:text-white transition-colors">
+                                🚚
+                            </div>
+                            <h3 class="text-xl font-bold brand-font text-brand-900 mb-3">Fast Delivery</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Enjoy quick and reliable delivery across the country.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-shop" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Our Premium Collection</h1>
+                    <p class="text-lg text-brand-100">Sourced ethically, delivered fresh. Discover our handpicked selection of nature's best.</p>
+                </div>
+            </div>
+
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-wishlist" class="hidden bg-brand-50 min-h-screen pb-20 pt-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl md:text-4xl font-bold brand-font text-brand-900 mb-8">My Wishlist</h1>
+                
+                <div id="wishlist-empty-state" class="bg-white p-12 rounded-2xl shadow-sm border border-gray-100 text-center">
+                    <div class="w-20 h-20 bg-brand-50 text-brand-300 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold brand-font text-brand-900 mb-2">Your wishlist is empty</h3>
+                    <p class="text-gray-500 mb-6">Save your favorite products to check them out later.</p>
+                    <button onclick="switchView('shop')" class="bg-brand-800 text-white px-6 py-2.5 rounded-lg hover:bg-brand-900 transition">Explore Shop</button>
+                </div>
+                
+                <div id="wishlist-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 hidden"></div>
+            </div>
+        </div>
+
+        <div id="view-track" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Track Your Order</h1>
+                    <p class="text-lg text-brand-100">Enter your India Post Consignment Number for live status updates</p>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 mb-8">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-red-100 text-red-700 rounded-full flex items-center justify-center font-bold text-lg">
+                            🇮🇳
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold brand-font text-brand-900">India Post Tracking</h3>
+                            <p class="text-xs text-gray-500">Official partner for secure domestic dispatch</p>
+                        </div>
+                    </div>
+
+                    <form onsubmit="handleIndiaPostTracking(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Consignment / Tracking Number</label>
+                            <div class="flex gap-3">
+                                <input type="text" id="tracking-number-input" required placeholder="e.g. EE123456789IN" class="flex-grow px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none text-base uppercase font-mono">
+                                <button type="submit" class="bg-brand-800 text-white font-medium px-8 py-3 rounded-xl hover:bg-brand-900 transition-colors shadow-md flex items-center justify-center space-x-2">
+                                    <i class="fas fa-search text-sm"></i>
+                                    <span>Track</span>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400">Sample tracking numbers to try: <button type="button" onclick="document.getElementById('tracking-number-input').value='EE123456789IN'" class="text-brand-700 underline font-mono">EE123456789IN</button> or <button type="button" onclick="document.getElementById('tracking-number-input').value='IN987654321IN'" class="text-brand-700 underline font-mono">IN987654321IN</button></p>
+                    </form>
+                </div>
+
+                <div id="tracking-result-container" class="hidden bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
+                    <div class="border-b border-gray-100 pb-6 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div>
+                            <span class="text-xs font-semibold text-gold-600 uppercase tracking-widest">Consignment ID</span>
+                            <h4 id="res-consignment" class="text-xl font-bold font-mono text-brand-900">EE123456789IN</h4>
+                        </div>
+                        <div class="px-4 py-1.5 bg-brand-50 text-brand-800 rounded-full text-xs font-bold uppercase tracking-wider border border-brand-100" id="res-status-badge">
+                            In Transit
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 bg-gray-50 p-6 rounded-2xl border border-gray-100 text-sm">
+                        <div>
+                            <span class="text-gray-400 block text-xs mb-1">Booking Office</span>
+                            <strong class="text-gray-800">Pampore SO (J&K)</strong>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 block text-xs mb-1">Destination Pincode</span>
+                            <strong class="text-gray-800" id="res-pincode">110001 (New Delhi)</strong>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 block text-xs mb-1">Estimated Delivery</span>
+                            <strong class="text-brand-700">Within 3-5 Business Days</strong>
+                        </div>
+                    </div>
+
+                    <h4 class="font-bold text-gray-900 mb-6 text-base">Tracking History (India Post)</h4>
+                    <div class="space-y-6 relative before:absolute before:top-2 before:bottom-2 before:left-4 before:w-0.5 before:bg-gray-200">
+                        <div class="relative pl-10">
+                            <div class="absolute left-2.5 -translate-x-1/2 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-500 border-4 border-white shadow-sm"></div>
+                            <p class="text-sm font-bold text-gray-900">Item Dispatched from Sorting Hub</p>
+                            <p class="text-xs text-gray-500">New Delhi NMPC — Today, 04:30 AM</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute left-2.5 -translate-x-1/2 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-500 border-4 border-white shadow-sm"></div>
+                            <p class="text-sm font-bold text-gray-900">Item Received at Transit Hub</p>
+                            <p class="text-xs text-gray-500">Srinagar RMS — Yesterday, 08:15 PM</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute left-2.5 -translate-x-1/2 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-500 border-4 border-white shadow-sm"></div>
+                            <p class="text-sm font-bold text-gray-900">Item Booked / Picked up</p>
+                            <p class="text-xs text-gray-500">Chandhara Pampore SO — 2 days ago, 11:00 AM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-profile" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-16 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <div class="w-20 h-20 bg-gold-500 text-brand-900 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold brand-font shadow-lg profile-initials">U</div>
+                    <h1 id="profile-name-heading" class="text-3xl md:text-4xl font-bold brand-font text-gold-500 mb-2">My Account</h1>
+                    <p id="profile-email-heading" class="text-sm text-brand-100">Manage your addresses, orders, and tracking</p>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 md:col-span-1 space-y-2">
+                        <button onclick="switchProfileTab('orders')" id="tab-btn-orders" class="w-full text-left px-4 py-3 rounded-xl font-medium text-sm flex items-center space-x-3 bg-brand-50 text-brand-900 transition">
+                            <i class="fas fa-box w-5 text-center"></i>
+                            <span>Your Orders</span>
+                        </button>
+                        <button onclick="switchProfileTab('address')" id="tab-btn-address" class="w-full text-left px-4 py-3 rounded-xl font-medium text-sm flex items-center space-x-3 text-gray-600 hover:bg-gray-50 transition">
+                            <i class="fas fa-map-marker-alt w-5 text-center"></i>
+                            <span>Saved Addresses</span>
+                        </button>
+                        <button onclick="switchProfileTab('track')" id="tab-btn-track" class="w-full text-left px-4 py-3 rounded-xl font-medium text-sm flex items-center space-x-3 text-gray-600 hover:bg-gray-50 transition">
+                            <i class="fas fa-truck w-5 text-center"></i>
+                            <span>Track Order</span>
+                        </button>
+                        <div class="pt-4 border-t border-gray-100">
+                            <button onclick="logoutUser()" class="w-full text-left px-4 py-3 rounded-xl font-medium text-sm flex items-center space-x-3 text-red-600 hover:bg-red-50 transition">
+                                <i class="fas fa-sign-out-alt w-5 text-center"></i>
+                                <span>Logout</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2 space-y-6">
+                        <div id="profile-tab-orders" class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                            <h3 class="text-xl font-bold brand-font text-brand-900 mb-6 flex items-center justify-between">
+                                <span>Your Order History</span>
+                                <span class="text-xs font-normal text-gray-500" id="profile-orders-count">0 orders</span>
+                            </h3>
+                            <div id="profile-orders-list" class="space-y-4">
+                                <div class="text-center py-12 text-gray-400">
+                                    <i class="fas fa-box-open text-4xl mb-3"></i>
+                                    <p class="text-sm">You haven't placed any orders yet.</p>
+                                    <button onclick="switchView('shop')" class="mt-4 bg-brand-800 text-white text-xs px-5 py-2.5 rounded-lg hover:bg-brand-900 transition">Start Shopping</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="profile-tab-address" class="hidden bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                            <h3 class="text-xl font-bold brand-font text-brand-900 mb-6">Saved Delivery Addresses</h3>
+                            <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100 relative">
+                                <span class="absolute top-4 right-4 bg-brand-800 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Default</span>
+                                <h4 id="addr-name" class="font-bold text-gray-900 mb-1">John Doe</h4>
+                                <p id="addr-details" class="text-sm text-gray-600 leading-relaxed mb-3">Chandhara Pampore, Near Shrine<br>Pampore, Jammu and Kashmir - 192122</p>
+                                <p id="addr-phone" class="text-xs text-gray-500"><i class="fas fa-phone-alt mr-1"></i> +91 9103002579</p>
+                            </div>
+                        </div>
+
+                        <div id="profile-tab-track" class="hidden bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                            <h3 class="text-xl font-bold brand-font text-brand-900 mb-4">Quick India Post Tracking</h3>
+                            <p class="text-sm text-gray-600 mb-6">Enter your consignment tracking ID below to check live delivery progress.</p>
+                            <div class="flex gap-3">
+                                <input type="text" id="profile-track-input" placeholder="e.g. EE123456789IN" class="flex-grow px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none uppercase font-mono text-sm">
+                                <button onclick="switchView('track'); document.getElementById('tracking-number-input').value = document.getElementById('profile-track-input').value; handleIndiaPostTracking(new Event('submit'));" class="bg-brand-800 text-white font-medium px-6 py-2.5 rounded-xl hover:bg-brand-900 transition text-sm">Track</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-about" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Our Story</h1>
+                    <p class="text-lg text-brand-100">About HABBA KHATOON SAFFRON HUB</p>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center mb-16">
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4">Our Beginnings</h2>
+                    <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                        A family business rooted in Kashmir's saffron tradition, growing into a trusted name for natural, premium products.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center mb-6 text-xl">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold brand-font text-brand-900 mb-4">Our Mission</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            To deliver the finest Kashmiri saffron along with premium dry fruits and nuts sourced from trusted growers. We are committed to maintaining the highest standards of quality, supporting sustainable farming practices, and promoting healthy living through natural and authentic products.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-100 hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center mb-6 text-xl">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold brand-font text-brand-900 mb-4">Our Vision</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            To become a trusted name for premium saffron, dry fruits, and natural foods, recognized for quality, sustainability, and customer trust. We aim to make healthy, natural products accessible while encouraging responsible farming and preserving the richness of nature for future generations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold brand-font text-brand-900 mb-6">Meet Our Team</h2>
+                    <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                        At HABBA KHATOON SAFFRON HUB, our team is driven by dedication, experience, and a passion for quality. Together, we work to ensure that every product reflects authenticity, freshness, and the trust our customers have placed in us for generations.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                    <div class="flex flex-col items-center text-center bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <img src="https://placehold.co/200x200/166534/d4af37?text=NW" alt="Naveed Wani" class="w-32 h-32 rounded-full object-cover mb-6 border-4 border-brand-100">
+                        <h4 class="text-xl font-bold brand-font text-brand-900">Naveed Wani</h4>
+                        <span class="text-gold-600 font-medium text-sm mb-4 uppercase tracking-wider">Owner</span>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Naveed Wani is the founder of HABBA KHATOON SAFFRON HUB, established in 1981. Through determination and years of hard work, he built this brand with a vision to provide authentic saffron and premium dry fruits while earning the trust of customers through quality and dedication.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center text-center bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <img src="https://placehold.co/200x200/166534/d4af37?text=FM" alt="Mr. Fazil Manzoor" class="w-32 h-32 rounded-full object-cover mb-6 border-4 border-brand-100">
+                        <h4 class="text-xl font-bold brand-font text-brand-900">Mr. Fazil Manzoor</h4>
+                        <span class="text-gold-600 font-medium text-sm mb-4 uppercase tracking-wider">Manager</span>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Mr. Fazil Manzoor serves as the Manager of Habba Khatoon Saffron Hub, playing an important role in the daily operations and growth of the business. With dedication and a strong focus on quality and customer satisfaction, he helps ensure that every product meets the high standards the brand is known for.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-contact" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Contact Us</h1>
+                    <p class="text-lg text-brand-100">We'd love to hear from you</p>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl font-bold brand-font text-brand-900 mb-6">Get In Touch</h2>
+                        <p class="text-gray-600 mb-8 leading-relaxed">Have a question about our saffron, bulk orders, or just want to say hello? Reach out to us using the details below or fill out the form.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Phone</h4>
+                                    <p class="text-gray-600">+91 9103002579</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Email</h4>
+                                    <a href="mailto:habbakhatoonsaffronhub@gmail.com" class="text-brand-700 hover:text-gold-600 transition break-all">habbakhatoonsaffronhub@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Location</h4>
+                                    <p class="text-gray-600">chandhara pampore srinagar jammu and kashmir_192122</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-2xl font-bold brand-font text-brand-900 mb-6">Send a Message</h3>
+                        <form class="space-y-4" onsubmit="event.preventDefault(); showToast('Message sent successfully!', 'success'); this.reset();">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                                <input type="text" required class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea required rows="4" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-800 text-white font-medium py-3 rounded-lg hover:bg-brand-900 transition-colors shadow-md">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-cart" class="hidden bg-brand-50 min-h-screen pb-24 pt-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl md:text-4xl font-bold brand-font text-brand-900 mb-8">Your Shopping Cart</h1>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <div class="lg:col-span-7">
+                        <div id="cart-empty-state" class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 text-center">
+                            <div class="w-20 h-20 bg-brand-50 text-brand-300 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <h3 class="text-xl font-bold brand-font text-brand-900 mb-2">Your cart is empty</h3>
+                            <p class="text-gray-500 mb-6">Looks like you haven't added anything to your cart yet.</p>
+                            <button onclick="switchView('home')" class="bg-brand-800 text-white px-6 py-2.5 rounded-lg hover:bg-brand-900 transition">Start Shopping</button>
+                        </div>
+                        
+                        <div id="cart-items-container" class="space-y-4 hidden"></div>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-6">
+                            <h2 class="text-xl font-bold brand-font text-brand-900 mb-4 flex items-center">
+                                <i class="fas fa-map-marker-alt text-gold-500 mr-2"></i> Shipping Address
+                            </h2>
+                            <form id="shipping-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Full Name</label>
+                                    <input type="text" id="ship-name" required class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">Phone Number</label>
+                                        <input type="tel" id="ship-phone" required class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">Pincode</label>
+                                        <input type="text" id="ship-pincode" required class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Complete Address (House No, Street, Landmark)</label>
+                                    <textarea required id="ship-address" rows="2" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-sm resize-none"></textarea>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">Post Office</label>
+                                        <input type="text" required id="ship-po" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">City / District</label>
+                                        <input type="text" required id="ship-city" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">State</label>
+                                    <input type="text" required id="ship-state" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                            <h2 class="text-xl font-bold brand-font text-brand-900 mb-4">Order Summary</h2>
+                            <div class="space-y-3 text-sm text-gray-600 border-b border-gray-100 pb-4 mb-4">
+                                <div class="flex justify-between">
+                                    <span id="summary-items-count">Subtotal (0 items)</span>
+                                    <span id="summary-subtotal" class="font-medium text-gray-900">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Shipping <span class="text-xs text-gray-400">(₹100/kg)</span></span>
+                                    <span id="summary-shipping" class="font-medium text-gray-900">₹0</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-brand-700 font-medium">
+                                    <span>Total Weight</span>
+                                    <span id="summary-weight">0g</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between text-xl font-bold text-brand-900 mb-6">
+                                <span>Total</span>
+                                <span id="summary-total">₹0</span>
+                            </div>
+                            <button onclick="placeOrder()" class="w-full bg-brand-800 text-white font-medium py-3 rounded-lg hover:bg-brand-900 transition-colors shadow-md flex justify-center items-center space-x-2">
+                                <span>Place Order</span>
+                                <i class="fas fa-lock text-xs opacity-75"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-gallery" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Our Gallery</h1>
+                    <p class="text-lg text-brand-100">Glimpses of our heritage, farms, and premium products.</p>
+                </div>
+            </div>
+
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <div class="relative group overflow-hidden rounded-2xl aspect-square shadow-sm hover:shadow-xl transition-all duration-300">
+                            <img src="https://placehold.co/600x600/166534/d4af37?text=Saffron+Harvest" alt="Saffron Harvest" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <span class="text-gold-500 font-bold tracking-widest uppercase text-sm border-2 border-gold-500 px-6 py-2 rounded-full">Saffron Harvest</span>
+                            </div>
+                        </div>
+                        <div class="relative group overflow-hidden rounded-2xl aspect-square shadow-sm hover:shadow-xl transition-all duration-300">
+                            <img src="https://placehold.co/600x600/166534/d4af37?text=Premium+Walnuts" alt="Premium Walnuts" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <span class="text-gold-500 font-bold tracking-widest uppercase text-sm border-2 border-gold-500 px-6 py-2 rounded-full">Kashmiri Walnuts</span>
+                            </div>
+                        </div>
+                        <div class="relative group overflow-hidden rounded-2xl aspect-square shadow-sm hover:shadow-xl transition-all duration-300">
+                            <img src="https://placehold.co/600x600/166534/d4af37?text=Pure+Shilajit" alt="Pure Shilajit" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <span class="text-gold-500 font-bold tracking-widest uppercase text-sm border-2 border-gold-500 px-6 py-2 rounded-full">Pure Shilajit</span>
+                            </div>
+                        </div>
+                        <div class="relative group overflow-hidden rounded-2xl aspect-square shadow-sm hover:shadow-xl transition-all duration-300">
+                            <img src="https://placehold.co/600x600/166534/d4af37?text=Saffron+Threads" alt="Saffron Threads" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <span class="text-gold-500 font-bold tracking-widest uppercase text-sm border-2 border-gold-500 px-6 py-2 rounded-full">Finest Threads</span>
+                            </div>
+                        </div>
+                        <div class="relative group overflow-hidden rounded-2xl aspect-square shadow-sm hover:shadow-xl transition-all duration-300 md:col-span-2">
+                            <img src="https://placehold.co/1200x600/166534/d4af37?text=Our+Heritage+Farms" alt="Our Heritage Farms" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <span class="text-gold-500 font-bold tracking-widest uppercase text-sm border-2 border-gold-500 px-6 py-2 rounded-full">Pampore Farms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="view-faqs" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Frequently Asked Questions</h1>
+                    <p class="text-lg text-brand-100">Got questions about our pure Kashmiri products? Find answers here.</p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="space-y-6">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-bold brand-font text-brand-900 mb-2">1. How can I verify that your Saffron is 100% pure?</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Our saffron is directly harvested from our family fields in Chandhara, Pampore. Pure saffron threads release a rich golden-yellow color slowly in warm water (not instantly red) and retain their natural crimson hue and bitter-sweet aroma.</p>
+                    </div>
+
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-bold brand-font text-brand-900 mb-2">2. How should I store my dry fruits and saffron?</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">To maintain freshness and natural quality, store them in a cool, dry place inside clean, airtight glass containers. Refrigeration is highly recommended, especially since our products are 100% natural and free from chemical preservatives.</p>
+                    </div>
+
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-bold brand-font text-brand-900 mb-2">3. What are your shipping charges?</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">We charge a flat rate of ₹100 per kilogram calculated automatically based on your order weight. We also offer FREE shipping on all orders over ₹6000!</p>
+                    </div>
+
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-bold brand-font text-brand-900 mb-2">4. How can I track my order?</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">You can easily track your dispatch using our India Post tracking system in the footer or menu by entering your official consignment number.</p>
+                    </div>
+
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-bold brand-font text-brand-900 mb-2">5. What is your return and refund policy?</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">We accept returns within 5 days of delivery for unopened and unused items in original packaging. For food items, opened packages cannot be returned due to health and safety regulations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-privacy" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Privacy Policy</h1>
+                    <p class="text-lg text-brand-100">How we collect, use, disclose, and safeguard your information.</p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 text-gray-700">
+                    <p class="text-lg mb-8 leading-relaxed">At <span class="font-bold text-brand-900">Habba Khatoon Saffron Hub</span>, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or make a purchase.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4 mt-10">Information We Collect</h2>
+                    <p class="mb-4">We collect information that you provide directly to us, including:</p>
+                    <ul class="list-disc pl-6 mb-8 space-y-2 text-gray-600">
+                        <li>Name and contact information (email address, phone number, shipping address)</li>
+                        <li>Payment information (processed securely through our payment providers)</li>
+                        <li>Order history and preferences</li>
+                        <li>Communications with our customer service team</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4 mt-10">How We Use Your Information</h2>
+                    <p class="mb-4">We use the information we collect to:</p>
+                    <ul class="list-disc pl-6 mb-8 space-y-2 text-gray-600">
+                        <li>Process and fulfill your orders</li>
+                        <li>Communicate with you about your orders and inquiries</li>
+                        <li>Send you marketing communications (with your consent)</li>
+                        <li>Improve our website and services</li>
+                        <li>Comply with legal obligations</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4 mt-10">Information Sharing</h2>
+                    <p class="mb-4">We do not sell your personal information. We may share your information with:</p>
+                    <ul class="list-disc pl-6 mb-8 space-y-2 text-gray-600">
+                        <li>Service providers who assist in our operations (shipping, payment processing)</li>
+                        <li>Legal authorities when required by law</li>
+                        <li>Business partners with your consent</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4 mt-10">Data Security</h2>
+                    <p class="mb-8 text-gray-600 leading-relaxed">We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4 mt-10">Your Rights</h2>
+                    <p class="mb-4">You have the right to:</p>
+                    <ul class="list-disc pl-6 mb-8 space-y-2 text-gray-600">
+                        <li>Access your personal information</li>
+                        <li>Correct inaccurate information</li>
+                        <li>Request deletion of your information</li>
+                        <li>Opt-out of marketing communications</li>
+                        <li>Withdraw consent for data processing</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4 mt-10">Cookies and Tracking</h2>
+                    <p class="mb-8 text-gray-600 leading-relaxed">We use cookies and similar tracking technologies to improve your browsing experience and analyze website traffic. You can control cookie settings through your browser preferences.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4 mt-10">Children's Privacy</h2>
+                    <p class="mb-8 text-gray-600 leading-relaxed">Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4 mt-10">Changes to This Policy</h2>
+                    <p class="mb-8 text-gray-600 leading-relaxed">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the updated Privacy Policy on this page.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 mb-4 mt-10">Contact Us</h2>
+                    <p class="mb-6">If you have any questions about this Privacy Policy, please contact us:</p>
+                    <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100 flex flex-col sm:flex-row gap-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center text-lg"><i class="fas fa-envelope"></i></div>
+                            <a href="mailto:habbakhatoonsaffronhub@gmail.com" class="text-brand-900 font-medium hover:text-gold-600 transition break-all">habbakhatoonsaffronhub@gmail.com</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center text-lg"><i class="fas fa-phone-alt"></i></div>
+                            <a href="tel:+919103002579" class="text-brand-900 font-medium hover:text-gold-600 transition">+91 9103002579</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-terms" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Terms & Conditions</h1>
+                    <p class="text-lg text-brand-100">Rules governing your use of the Habba Khatoon Saffron Hub website and the purchase of products.</p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 text-gray-700 space-y-6">
+                    <p class="text-lg leading-relaxed">Welcome to <span class="font-bold text-brand-900">Habba Khatoon Saffron Hub</span>. These Terms and Conditions govern your use of the Habba Khatoon Saffron Hub website and the purchase of products from our online store. By accessing our website or placing an order, you agree to be bound by these Terms and Conditions.</p>
+
+                    <p class="text-gray-600 leading-relaxed">Please read these Terms carefully before using our website or making a purchase. If you do not agree with any part of these terms, please do not use our website or services.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">1. Definitions</h2>
+                    <p class="mb-2">In these Terms and Conditions:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                        <li><strong class="text-gray-800">"We," "us," "our," and "Wani Dry Fruits"</strong> refer to Habba Khatoon Saffron Hub.</li>
+                        <li><strong class="text-gray-800">"Website"</strong> refers to the official website of Habba Khatoon Saffron Hub.</li>
+                        <li><strong class="text-gray-800">"You" and "your"</strong> refer to the user or visitor of our website.</li>
+                        <li><strong class="text-gray-800">"Products"</strong> refers to the items offered for sale on our website.</li>
+                        <li><strong class="text-gray-800">"Terms"</strong> refers to these Terms and Conditions.</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">2. Use of Our Website</h2>
+                    <h3 class="text-lg font-bold text-gray-800 pt-2">2.1 Eligibility</h3>
+                    <p class="text-gray-600">You must be at least 18 years old or have the permission of a parent or guardian to use our website and purchase products.</p>
+                    
+                    <h3 class="text-lg font-bold text-gray-800 pt-2">2.2 Account Registration</h3>
+                    <p class="text-gray-600">To place an order, you may need to create an account. You are responsible for maintaining the confidentiality of your account information and all activities that occur under your account. You agree to provide accurate and complete information and update it when necessary.</p>
+
+                    <h3 class="text-lg font-bold text-gray-800 pt-2">2.3 Prohibited Activities</h3>
+                    <p class="mb-2 text-gray-600">When using our website, you agree not to:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                        <li>Violate any applicable laws or regulations</li>
+                        <li>Infringe on the intellectual property rights of others</li>
+                        <li>Transmit harmful code such as viruses or malware</li>
+                        <li>Interfere with the proper functioning of the website</li>
+                        <li>Attempt unauthorized access to any part of the website</li>
+                        <li>Use the website for illegal or unauthorized purposes</li>
+                        <li>Collect or harvest information from the website without permission</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">3. Products and Ordering</h2>
+                    <h3 class="text-lg font-bold text-gray-800 pt-2">3.1 Product Information</h3>
+                    <p class="text-gray-600">We strive to provide accurate descriptions, images, and pricing for our products. However, we do not guarantee that all information on our website is completely accurate, complete, or error-free.</p>
+
+                    <h3 class="text-lg font-bold text-gray-800 pt-2">3.2 Availability and Pricing</h3>
+                    <p class="text-gray-600">All products are subject to availability. We reserve the right to limit quantities, discontinue products, or change prices without prior notice.</p>
+
+                    <h3 class="text-lg font-bold text-gray-800 pt-2">3.3 Order Acceptance</h3>
+                    <p class="text-gray-600">Placing an order constitutes an offer to purchase our products. We reserve the right to accept or decline any order. An order confirmation email confirms receipt of your order but does not guarantee acceptance. Acceptance occurs once the product is shipped.</p>
+
+                    <h3 class="text-lg font-bold text-gray-800 pt-2">3.4 Payment</h3>
+                    <p class="text-gray-600">We accept secure payment methods available on our website. By providing payment details, you confirm that you have the legal right to use the payment method and authorize us to charge the agreed amount.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">4. Shipping and Delivery</h2>
+                    <p class="text-gray-600 leading-relaxed">Delivery times depend on your location and the shipping method selected at checkout. We are not liable for delays caused by carriers or events outside our control.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">5. Returns and Refunds</h2>
+                    <p class="text-gray-600 leading-relaxed">Our Returns & Refunds Policy sets out the terms under which we accept returns and process refunds.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">6. Intellectual Property</h2>
+                    <p class="text-gray-600 leading-relaxed">All content on our website — including text, graphics, logos, images, and software — is the property of Habba Khatoon Saffron Hub or its licensors and is protected by applicable intellectual property laws.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">7. Limitation of Liability</h2>
+                    <p class="text-gray-600 leading-relaxed">To the maximum extent permitted by law, Habba Khatoon Saffron Hub shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our website or products.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">8. Changes to These Terms</h2>
+                    <p class="text-gray-600 leading-relaxed">We may update these Terms from time to time. Continued use of our website after changes are posted constitutes acceptance of the revised Terms.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">9. Governing Law</h2>
+                    <p class="text-gray-600 leading-relaxed">These Terms are governed by the laws of India. Any disputes shall be resolved in the courts of jurisdiction in Kashmir.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Contact</h2>
+                    <p class="mb-4">If you have any questions about these Terms, please reach us:</p>
+                    <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100 flex flex-col sm:flex-row gap-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center text-lg"><i class="fas fa-envelope"></i></div>
+                            <a href="mailto:habbakhatoonsaffronhub@gmail.com" class="text-brand-900 font-medium hover:text-gold-600 transition break-all">habbakhatoonsaffronhub@gmail.com</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center text-lg"><i class="fas fa-phone-alt"></i></div>
+                            <a href="tel:+919103002579" class="text-brand-900 font-medium hover:text-gold-600 transition">+91 9103002579</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-refund" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Returns & Refunds</h1>
+                    <p class="text-lg text-brand-100">Our simple and fair returns and refunds policy.</p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 text-gray-700 space-y-6">
+                    <p class="text-lg leading-relaxed">At <span class="font-bold text-brand-900">Habba Khatoon Saffron Hub</span>, we want you to be completely satisfied with your purchase. If for any reason you're not happy with your order, we offer a simple and fair returns and refunds policy.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Return Eligibility</h2>
+                    <p class="mb-2">You may return your order within 15 days of receiving it if:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                        <li>The product is unused and in its original packaging</li>
+                        <li>The product is not opened (for food items due to health and safety regulations)</li>
+                        <li>The product is not a perishable item that has expired</li>
+                        <li>The product is not a sale item marked as "final sale"</li>
+                        <li>You have proof of purchase (order confirmation or receipt)</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Non-Returnable Items</h2>
+                    <p class="mb-2">The following items cannot be returned:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                        <li>Opened food products (due to health and safety regulations)</li>
+                        <li>Gift cards</li>
+                        <li>Downloadable products</li>
+                        <li>Personalized or custom-made items</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Return Process</h2>
+                    <p class="mb-2">To initiate a return, please follow these steps:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                        <li>Contact our customer service team at <a href="mailto:habbakhatoonsaffronhub@gmail.com" class="text-brand-700 underline">habbakhatoonsaffronhub@gmail.com</a> or call us at <a href="tel:+919103002579" class="text-brand-700 underline">+91 9103002579</a> to request a return authorization.</li>
+                        <li>Include your order number, the items you wish to return, and the reason for the return in your request.</li>
+                        <li>Our team will provide you with a return authorization number and shipping instructions.</li>
+                        <li>Package the items securely in their original packaging if possible.</li>
+                        <li>Include your return authorization number and order information with the package.</li>
+                        <li>Ship the package to the address provided in the return instructions.</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Return Shipping</h2>
+                    <p class="text-gray-600 leading-relaxed">Customers are responsible for return shipping costs unless the return is due to our error (such as receiving an incorrect or defective item). We recommend using a trackable shipping service to ensure the safe delivery of your return.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Refund Process</h2>
+                    <p class="mb-2">Once we receive and inspect your return, we will notify you about the status of your refund:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                        <li>If approved, your refund will be processed within 3–5 business days, and the amount will be automatically applied to your original payment method.</li>
+                        <li>If declined, you will receive an email explaining why your return was not accepted, and your items will be shipped back to you.</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Refund Timeframe</h2>
+                    <p class="text-gray-600 leading-relaxed">After your return is approved, it typically takes 5–10 business days for the refund to appear in your account, depending on your payment provider's processing time.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Exchanges</h2>
+                    <p class="text-gray-600 leading-relaxed">We do not offer direct exchanges. If you wish to exchange an item, please return the original item for a refund and place a new order for the desired item.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Damaged or Defective Items</h2>
+                    <p class="text-gray-600 leading-relaxed">If you receive a damaged or defective item, please contact our customer service team immediately. We will arrange for a replacement or refund at no additional cost to you.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-shipping" class="hidden bg-brand-50 min-h-screen pb-20">
+            <div class="bg-brand-900 text-white py-20 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://placehold.co/1920x400/14532d/22c55e?text=Pattern" alt="Pattern" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold brand-font text-gold-500 mb-4">Shipping Policy</h1>
+                    <p class="text-lg text-brand-100">Fast, secure, and reliable delivery of your pure Kashmiri orders.</p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 text-gray-700 space-y-6">
+                    <p class="text-lg leading-relaxed">At <span class="font-bold text-brand-900">Habba Khatoon Saffron Hub</span>, we are committed to delivering your authentic Kashmiri saffron and dry fruits safely and on time.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">1. Shipping Charges</h2>
+                    <p class="text-gray-600 leading-relaxed">We maintain a flat and transparent shipping rate of <strong class="text-gray-900">₹100 per kilogram</strong> calculated automatically based on total order weight at checkout. Enjoy free shipping on orders above ₹6000!</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">2. Order Processing & Dispatch</h2>
+                    <p class="text-gray-600 leading-relaxed">Orders are typically processed and dispatched within 24 to 48 hours of confirmation. You will receive tracking details via email/SMS as soon as your package leaves our Pampore facility.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">3. Estimated Delivery Time</h2>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                        <li><strong class="text-gray-800">Within Jammu & Kashmir:</strong> 2 to 4 business days</li>
+                        <li><strong class="text-gray-800">Rest of India:</strong> 4 to 7 business days depending on the courier partner and destination pincode.</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">4. Packaging Standards</h2>
+                    <p class="text-gray-600 leading-relaxed">All our items are hermetically packed to preserve natural aroma, flavor, and protect against humidity or transit shocks.</p>
+
+                    <h2 class="text-2xl font-bold brand-font text-brand-900 pt-6">Need Assistance?</h2>
+                    <p class="mb-4">If you have any questions regarding your shipment, reach out to us:</p>
+                    <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100 flex flex-col sm:flex-row gap-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center text-lg"><i class="fas fa-envelope"></i></div>
+                            <a href="mailto:habbakhatoonsaffronhub@gmail.com" class="text-brand-900 font-medium hover:text-gold-600 transition break-all">habbakhatoonsaffronhub@gmail.com</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center text-lg"><i class="fas fa-phone-alt"></i></div>
+                            <a href="tel:+919103002579" class="text-brand-900 font-medium hover:text-gold-600 transition">+91 9103002579</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-brand-900 text-brand-50 pt-16 pb-8 border-t-4 border-gold-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                
+                <div class="col-span-1 lg:col-span-2">
+                    <a href="#" onclick="switchView('home')" class="flex flex-col mb-6">
+                        <span class="text-xl md:text-2xl font-bold brand-font text-gold-500 tracking-wider">HABBA KHATOON</span>
+                        <span class="text-xs uppercase tracking-widest text-brand-100 font-medium">Saffron Hub</span>
+                    </a>
+                    <p class="text-brand-100 text-sm leading-relaxed max-w-sm mb-6">
+                        Bringing you the finest and purest saffron, dry fruits, and natural wellness products straight from the heavenly valleys of Kashmir.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61569884515106" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-brand-100 hover:bg-gold-500 hover:text-brand-900 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/habba_khatoon_saffron_hub/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-brand-100 hover:bg-gold-500 hover:text-brand-900 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@HABBAKHATOONSAFFRONHUB" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-brand-100 hover:bg-gold-500 hover:text-brand-900 transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="brand-font text-lg font-semibold text-gold-500 mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" onclick="switchView('shop')" class="text-brand-100 hover:text-gold-500 transition">Shop Products</a></li>
+                        <li><a href="#" onclick="switchView('about')" class="text-brand-100 hover:text-gold-500 transition">About Us</a></li>
+                        <li><a href="#" onclick="switchView('gallery')" class="text-brand-100 hover:text-gold-500 transition">Gallery</a></li>
+                        <li><a href="#" onclick="switchView('track')" class="text-brand-100 hover:text-gold-500 transition">Track Order</a></li>
+                        <li><a href="#" onclick="switchView('faqs')" class="text-brand-100 hover:text-gold-500 transition">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="brand-font text-lg font-semibold text-gold-500 mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" onclick="switchView('privacy')" class="text-brand-100 hover:text-gold-500 transition">Privacy Policy</a></li>
+                        <li><a href="#" onclick="switchView('terms')" class="text-brand-100 hover:text-gold-500 transition">Terms & Conditions</a></li>
+                        <li><a href="#" onclick="switchView('refund')" class="text-brand-100 hover:text-gold-500 transition">Refund Policy</a></li>
+                        <li><a href="#" onclick="switchView('shipping')" class="text-brand-100 hover:text-gold-500 transition">Shipping Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="brand-font text-lg font-semibold text-gold-500 mb-4">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-brand-100">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-gold-500"></i>
+                            <span>chandhara pampore srinagar jammu and kashmir_192122</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone-alt text-gold-500"></i>
+                            <span>+91 9103002579</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-gold-500"></i>
+                            <a href="mailto:habbakhatoonsaffronhub@gmail.com" class="hover:text-gold-500 transition break-all">habbakhatoonsaffronhub@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-brand-800 pt-8 text-center text-sm text-brand-100/60">
+                <p>&copy; <span id="year"></span> HABBA KHATOON SAFFRON HUB. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <nav class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-50 px-2 pb-safe">
+        <div class="flex justify-around items-center h-16">
+            <a href="#" onclick="switchView('home')" class="flex flex-col items-center justify-center w-1/4 text-brand-800">
+                <i class="fas fa-home text-xl mb-1"></i>
+                <span class="text-[10px] font-medium">Home</span>
+            </a>
+            <a href="#" onclick="switchView('shop')" class="flex flex-col items-center justify-center w-1/4 text-gray-500 hover:text-brand-800 transition">
+                <i class="fas fa-store text-xl mb-1"></i>
+                <span class="text-[10px] font-medium">Shop</span>
+            </a>
+            <button onclick="switchView('wishlist')" class="flex flex-col items-center justify-center w-1/4 text-gray-500 hover:text-brand-800 transition relative">
+                <i class="far fa-heart text-xl mb-1"></i>
+                <span class="text-[10px] font-medium">Wishlist</span>
+                <span id="mobile-wishlist-badge" class="absolute top-1 right-3 bg-brand-500 text-white text-[9px] font-bold h-4 w-4 rounded-full flex items-center justify-center hidden shadow-sm border border-white">0</span>
+            </button>
+            <button onclick="switchView('cart')" class="flex flex-col items-center justify-center w-1/4 text-gray-500 hover:text-brand-800 transition relative">
+                <i class="fas fa-shopping-bag text-xl mb-1"></i>
+                <span class="text-[10px] font-medium">Cart</span>
+                <span id="mobile-cart-badge" class="absolute top-1 right-3 bg-brand-500 text-white text-[9px] font-bold h-4 w-4 rounded-full flex items-center justify-center hidden shadow-sm border border-white">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="login-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-white rounded-2xl w-full max-w-md p-6 sm:p-8 relative transform scale-95 transition-transform duration-300 shadow-2xl" id="login-modal-content">
+            <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="text-center mb-8 mt-2">
+                <h2 id="auth-title" class="text-2xl font-bold brand-font text-brand-900 mb-2">Welcome Back</h2>
+                <p id="auth-subtitle" class="text-sm text-gray-500">Log in to your account to continue</p>
+            </div>
+            
+            <button onclick="simulateGoogleLogin()" class="w-full flex items-center justify-center space-x-3 border border-gray-300 rounded-lg p-3 hover:bg-gray-50 transition mb-6 shadow-sm group">
+                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                <span class="font-medium text-gray-700">Continue with Google</span>
+            </button>
+            
+            <div class="relative flex items-center justify-center mb-6">
+                <div class="border-t border-gray-200 w-full"></div>
+                <span class="bg-white px-4 text-xs font-medium text-gray-400 absolute">OR</span>
+            </div>
+            
+            <form id="auth-form" class="space-y-4" onsubmit="handleAuthSubmit(event)">
+                <div id="name-field" class="hidden">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input type="text" id="auth-name" placeholder="John Doe" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input type="email" id="auth-email" required placeholder="you@example.com" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="auth-password" required placeholder="••••••••" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition">
+                </div>
+                <button type="submit" id="auth-submit-btn" class="w-full bg-brand-800 text-white font-medium py-3 rounded-lg hover:bg-brand-900 transition-colors shadow-md mt-2">
+                    Sign In
+                </button>
+            </form>
+            
+            <p class="mt-6 text-center text-sm text-gray-600">
+                <span id="auth-toggle-text">Don't have an account?</span> 
+                <button onclick="toggleAuthMode()" id="auth-toggle-btn" class="text-brand-700 font-semibold hover:text-gold-600 transition ml-1 outline-none">Sign Up</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="toast-container" class="fixed bottom-20 md:bottom-10 left-1/2 transform -translate-x-1/2 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <a href="https://wa.me/919103002579" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-24 md:bottom-10 right-4 md:right-8 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-[32px] shadow-2xl hover:scale-110 transition-transform duration-300 z-[90]">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function toggleMobileSearch() {
+            const searchBar = document.getElementById('mobile-search-bar');
+            searchBar.classList.toggle('hidden');
+            const mobileDropdown = document.getElementById('mobile-user-dropdown');
+            if(mobileDropdown) mobileDropdown.classList.add('hidden');
+        }
+
+        function toggleUserDropdown(type, event) {
+            if(event) event.stopPropagation();
+            const desktopDropdown = document.getElementById('desktop-user-dropdown');
+            const mobileDropdown = document.getElementById('mobile-user-dropdown');
+            
+            if (type === 'desktop') {
+                desktopDropdown.classList.toggle('hidden');
+                if(mobileDropdown) mobileDropdown.classList.add('hidden');
+            } else {
+                mobileDropdown.classList.toggle('hidden');
+                if(desktopDropdown) desktopDropdown.classList.add('hidden');
+                const searchBar = document.getElementById('mobile-search-bar');
+                if(searchBar) searchBar.classList.add('hidden');
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const desktopDropdown = document.getElementById('desktop-user-dropdown');
+            const mobileDropdown = document.getElementById('mobile-user-dropdown');
+            
+            if (desktopDropdown && !event.target.closest('#desktop-user-container')) {
+                desktopDropdown.classList.add('hidden');
+            }
+            if (mobileDropdown && !event.target.closest('#mobile-user-container')) {
+                mobileDropdown.classList.add('hidden');
+            }
+        });
+
+        const products = [
+            {
+                id: 1,
+                name: "Premium Kashmiri Saffron (Mogra)",
+                price: "₹499",
+                priceNum: 499,
+                weight: "1 Gram",
+                weightGrams: 1,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Kashmiri+Saffron",
+                tag: "Bestseller"
+            },
+            {
+                id: 2,
+                name: "Pure Himalayan Shilajit Resin",
+                price: "₹999",
+                priceNum: 999,
+                weight: "20 Grams",
+                weightGrams: 20,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Pure+Shilajit",
+                tag: "Immunity"
+            },
+            {
+                id: 3,
+                name: "Kashmiri Snow White Walnuts",
+                price: "₹850",
+                priceNum: 850,
+                weight: "500 Grams",
+                weightGrams: 500,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Kashmiri+Walnuts",
+                tag: ""
+            },
+            {
+                id: 4,
+                name: "Premium Mamra Almonds",
+                price: "₹1,200",
+                priceNum: 1200,
+                weight: "500 Grams",
+                weightGrams: 500,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Premium+Almonds",
+                tag: ""
+            },
+            {
+                id: 5,
+                name: "Raw Saffron Infused Honey",
+                price: "₹650",
+                priceNum: 650,
+                weight: "250 Grams",
+                weightGrams: 250,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Saffron+Honey",
+                tag: "New"
+            },
+            {
+                id: 6,
+                name: "Wild Sea Buckthorn Berries",
+                price: "₹550",
+                priceNum: 550,
+                weight: "200 Grams",
+                weightGrams: 200,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Sea+Buckthorn",
+                tag: "Superfood"
+            },
+            {
+                id: 7,
+                name: "Kashmiri Kahwa Green Tea",
+                price: "₹450",
+                priceNum: 450,
+                weight: "250 Grams",
+                weightGrams: 250,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Kashmiri+Kahwa",
+                tag: "Traditional"
+            },
+            {
+                id: 8,
+                name: "Afghani Dried Figs (Anjeer)",
+                price: "₹950",
+                priceNum: 950,
+                weight: "500 Grams",
+                weightGrams: 500,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Dried+Figs",
+                tag: ""
+            },
+            {
+                id: 9,
+                name: "Royal Dry Fruit Chocolate Box",
+                price: "₹799",
+                priceNum: 799,
+                weight: "400 Grams",
+                weightGrams: 400,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Chocolates",
+                tag: "Gift Special"
+            },
+            {
+                id: 10,
+                name: "Pure Saffron Glow Face Ubtan",
+                price: "₹599",
+                priceNum: 599,
+                weight: "100 Grams",
+                weightGrams: 100,
+                image: "https://placehold.co/400x400/166534/d4af37?text=Saffron+Ubtan",
+                tag: "Natural Care"
+            }
+        ];
+
+        let cart = [];
+        let wishlist = [];
+        let currentUser = JSON.parse(localStorage.getItem('hk_user')) || null;
+        let usersDB = JSON.parse(localStorage.getItem('hk_users_db')) || {};
+        let userOrders = JSON.parse(localStorage.getItem('hk_user_orders')) || [];
+        let userAddress = JSON.parse(localStorage.getItem('hk_user_address')) || {
+            name: "Valued Customer",
+            phone: "+91 9103002579",
+            pincode: "192122",
+            address: "Chandhara Pampore, Near Shrine",
+            po: "Pampore SO",
+            city: "Srinagar",
+            state: "Jammu and Kashmir"
+        };
+
+        const badges = {
+            cart: {
+                desktop: document.getElementById('desktop-cart-badge'),
+                mobile: document.getElementById('mobile-cart-badge')
+            },
+            wishlist: {
+                desktop: document.getElementById('desktop-wishlist-badge'),
+                mobile: document.getElementById('mobile-wishlist-badge')
+            }
+        };
+
+        function handleSearch(query) {
+            const trimmed = query.trim().toLowerCase();
+            if (!trimmed) {
+                showToast('Please type a product to search', 'info');
+                return;
+            }
+            
+            const filtered = products.filter(p => p.name.toLowerCase().includes(trimmed) || p.weight.toLowerCase().includes(trimmed));
+            
+            switchView('shop');
+            const shopGrid = document.getElementById('product-grid');
+            if (shopGrid) {
+                shopGrid.innerHTML = '';
+                if (filtered.length === 0) {
+                    shopGrid.innerHTML = `
+                        <div class="col-span-full py-16 text-center">
+                            <div class="w-16 h-16 bg-brand-50 text-brand-300 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3 class="text-xl font-bold brand-font text-brand-900 mb-2">No products found for "${query}"</h3>
+                            <p class="text-gray-500 mb-6">Try searching for saffron, shilajit, walnuts, or almonds.</p>
+                            <button onclick="renderProducts()" class="bg-brand-800 text-white px-6 py-2.5 rounded-lg hover:bg-brand-900 transition">View All Products</button>
+                        </div>
+                    `;
+                } else {
+                    filtered.forEach(product => {
+                        shopGrid.appendChild(createProductCard(product));
+                    });
+                    showToast(`Found ${filtered.length} product(s)`, 'success');
+                }
+            }
+        }
+
+        function createProductCard(product) {
+            const isWishlisted = wishlist.includes(product.id);
+            const card = document.createElement('div');
+            card.className = 'product-card bg-white rounded-2xl border border-gray-100 overflow-hidden relative group flex flex-col h-full';
+            
+            let tagHtml = '';
+            if(product.tag) {
+                tagHtml = `<span class="absolute top-4 left-4 bg-gold-500 text-brand-900 text-xs font-bold px-3 py-1 rounded-full z-10">${product.tag}</span>`;
+            }
+
+            card.innerHTML = `
+                ${tagHtml}
+                <button onclick="toggleWishlist(${product.id})" class="absolute top-4 right-4 z-10 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-400 hover:text-brand-500 transition-colors">
+                    <i class="${isWishlisted ? 'fas text-brand-500' : 'far'} fa-heart wishlist-icon-${product.id}"></i>
+                </button>
+                
+                <div class="relative h-64 overflow-hidden bg-gray-50">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                
+                <div class="p-6 flex flex-col flex-grow">
+                    <span class="text-xs text-gray-500 mb-2">${product.weight}</span>
+                    <h3 class="brand-font text-xl font-bold text-gray-900 mb-2 line-clamp-2">${product.name}</h3>
+                    <div class="mt-auto pt-4 flex items-center justify-between">
+                        <span class="text-2xl font-bold text-brand-900">${product.price}</span>
+                        <button onclick="addToCart(${product.id})" class="bg-brand-50 text-brand-800 hover:bg-brand-800 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <button onclick="addToCart(${product.id})" class="w-full mt-4 bg-brand-800 text-white hover:bg-brand-900 py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2">
+                        <i class="fas fa-shopping-bag text-sm"></i>
+                        <span>Add to Cart</span>
+                    </button>
+                </div>
+            `;
+            return card;
+        }
+
+        function renderProducts() {
+            const shopGrid = document.getElementById('product-grid');
+            if (shopGrid) {
+                shopGrid.innerHTML = '';
+                products.forEach(product => {
+                    shopGrid.appendChild(createProductCard(product));
+                });
+            }
+
+            const featuredGrid = document.getElementById('featured-product-grid');
+            if (featuredGrid) {
+                featuredGrid.innerHTML = '';
+                products.slice(0, 4).forEach(product => {
+                    featuredGrid.appendChild(createProductCard(product));
+                });
+            }
+        }
+
+        function renderWishlist() {
+            const grid = document.getElementById('wishlist-grid');
+            const emptyState = document.getElementById('wishlist-empty-state');
+            
+            if (wishlist.length === 0) {
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            grid.innerHTML = '';
+
+            wishlist.forEach(id => {
+                const product = products.find(p => p.id === id);
+                if (product) {
+                    grid.appendChild(createProductCard(product));
+                }
+            });
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                const existingItem = cart.find(item => item.product.id === productId);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ product: product, quantity: 1 });
+                }
+                updateBadges();
+                showToast(`Added ${product.name} to cart`, 'success');
+                
+                if (!document.getElementById('view-cart').classList.contains('hidden')) {
+                    renderCart();
+                }
+            }
+        }
+
+        function updateCartQuantity(productId, change) {
+            const itemIndex = cart.findIndex(item => item.product.id === productId);
+            if (itemIndex > -1) {
+                cart[itemIndex].quantity += change;
+                if (cart[itemIndex].quantity <= 0) {
+                    cart.splice(itemIndex, 1);
+                }
+                updateBadges();
+                renderCart();
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.product.id !== productId);
+            updateBadges();
+            renderCart();
+            showToast(`Item removed from cart`, 'info');
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const emptyState = document.getElementById('cart-empty-state');
+            
+            const summaryItemsCount = document.getElementById('summary-items-count');
+            const summarySubtotal = document.getElementById('summary-subtotal');
+            const summaryShipping = document.getElementById('summary-shipping');
+            const summaryWeight = document.getElementById('summary-weight');
+            const summaryTotal = document.getElementById('summary-total');
+
+            if (cart.length === 0) {
+                container.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                
+                summaryItemsCount.textContent = `Subtotal (0 items)`;
+                summarySubtotal.textContent = `₹0`;
+                summaryShipping.textContent = `₹0`;
+                summaryWeight.textContent = `0g`;
+                summaryTotal.textContent = `₹0`;
+                return;
+            }
+
+            container.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            container.innerHTML = '';
+
+            let totalItems = 0;
+            let subtotal = 0;
+            let totalWeightGrams = 0;
+
+            cart.forEach(item => {
+                totalItems += item.quantity;
+                subtotal += (item.product.priceNum * item.quantity);
+                totalWeightGrams += (item.product.weightGrams * item.quantity);
+
+                const itemTotal = item.product.priceNum * item.quantity;
+
+                const cartItemHtml = `
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm relative">
+                        <button onclick="removeFromCart(${item.product.id})" class="absolute top-3 right-3 text-gray-300 hover:text-red-500 transition">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <img src="${item.product.image}" alt="${item.product.name}" class="w-20 h-20 object-cover rounded-lg bg-gray-50">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-gray-900 text-sm md:text-base pr-6">${item.product.name}</h4>
+                            <p class="text-xs text-gray-500 mb-2">Weight: ${item.product.weight}</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center border border-gray-200 rounded-lg">
+                                    <button onclick="updateCartQuantity(${item.product.id}, -1)" class="px-3 py-1 text-gray-500 hover:bg-gray-50 rounded-l-lg transition">-</button>
+                                    <span class="px-3 py-1 text-sm font-medium border-x border-gray-200">${item.quantity}</span>
+                                    <button onclick="updateCartQuantity(${item.product.id}, 1)" class="px-3 py-1 text-gray-500 hover:bg-gray-50 rounded-r-lg transition">+</button>
+                                </div>
+                                <span class="font-bold text-brand-900">₹${itemTotal.toLocaleString('en-IN')}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cartItemHtml;
+            });
+
+            const weightInKg = Math.ceil(totalWeightGrams / 1000);
+            const shippingCost = weightInKg > 0 ? weightInKg * 100 : 0;
+            const finalTotal = subtotal + shippingCost;
+
+            summaryItemsCount.textContent = `Subtotal (${totalItems} item${totalItems > 1 ? 's' : ''})`;
+            summarySubtotal.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+            summaryShipping.textContent = `₹${shippingCost.toLocaleString('en-IN')}`;
+            
+            let displayWeight = totalWeightGrams >= 1000 
+                ? (totalWeightGrams / 1000).toFixed(2) + ' kg' 
+                : totalWeightGrams + ' g';
+            summaryWeight.textContent = displayWeight;
+            
+            summaryTotal.textContent = `₹${finalTotal.toLocaleString('en-IN')}`;
+
+            if (currentUser) {
+                document.getElementById('ship-name').value = userAddress.name || currentUser.name || '';
+                document.getElementById('ship-phone').value = userAddress.phone || '';
+                document.getElementById('ship-pincode').value = userAddress.pincode || '';
+                document.getElementById('ship-address').value = userAddress.address || '';
+                document.getElementById('ship-po').value = userAddress.po || '';
+                document.getElementById('ship-city').value = userAddress.city || '';
+                document.getElementById('ship-state').value = userAddress.state || '';
+            }
+        }
+
+        function placeOrder() {
+            if (cart.length === 0) {
+                showToast('Your cart is empty!', 'info');
+                return;
+            }
+            
+            const form = document.getElementById('shipping-form');
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            userAddress = {
+                name: document.getElementById('ship-name').value,
+                phone: document.getElementById('ship-phone').value,
+                pincode: document.getElementById('ship-pincode').value,
+                address: document.getElementById('ship-address').value,
+                po: document.getElementById('ship-po').value,
+                city: document.getElementById('ship-city').value,
+                state: document.getElementById('ship-state').value
+            };
+            localStorage.setItem('hk_user_address', JSON.stringify(userAddress));
+
+            let totalAmt = 0;
+            cart.forEach(item => totalAmt += (item.product.priceNum * item.quantity));
+            
+            const newOrder = {
+                id: 'HK' + Math.floor(100000 + Math.random() * 900000),
+                consignment: 'EE' + Math.floor(100000000 + Math.random() * 900000000) + 'IN',
+                date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+                items: [...cart],
+                total: totalAmt + 100,
+                status: 'Processing & Dispatched'
+            };
+
+            userOrders.unshift(newOrder);
+            localStorage.setItem('hk_user_orders', JSON.stringify(userOrders));
+
+            showToast('Order placed successfully! Check Your Orders in Profile.', 'success');
+            cart = [];
+            updateBadges();
+            switchView('profile');
+            renderProfileData();
+        }
+
+        function handleIndiaPostTracking(event) {
+            event.preventDefault();
+            const trackingNum = document.getElementById('tracking-number-input').value.trim().toUpperCase();
+            if(!trackingNum) return;
+
+            const resultContainer = document.getElementById('tracking-result-container');
+            const resConsignment = document.getElementById('res-consignment');
+            
+            resConsignment.textContent = trackingNum;
+
+            resultContainer.classList.remove('hidden');
+            resultContainer.scrollIntoView({ behavior: 'smooth' });
+            showToast('India Post status retrieved successfully!', 'success');
+        }
+
+        function toggleWishlist(productId) {
+            const index = wishlist.indexOf(productId);
+            const icons = document.querySelectorAll(`.wishlist-icon-${productId}`);
+            const product = products.find(p => p.id === productId);
+
+            if (index === -1) {
+                wishlist.push(productId);
+                icons.forEach(icon => {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas', 'text-brand-500');
+                });
+                showToast(`Added ${product.name} to wishlist`, 'heart');
+            } else {
+                wishlist.splice(index, 1);
+                icons.forEach(icon => {
+                    icon.classList.remove('fas', 'text-brand-500');
+                    icon.classList.add('far');
+                });
+                showToast(`Removed ${product.name} from wishlist`, 'info');
+            }
+            updateBadges();
+            if (!document.getElementById('view-wishlist').classList.contains('hidden')) {
+                renderWishlist();
+            }
+        }
+
+        function updateBadges() {
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            [badges.cart.desktop, badges.cart.mobile].forEach(badge => {
+                if(badge) {
+                    badge.textContent = cartCount;
+                    if(cartCount > 0) {
+                        badge.classList.remove('hidden');
+                    } else {
+                        badge.classList.add('hidden');
+                    }
+                }
+            });
+
+            const wishlistCount = wishlist.length;
+            [badges.wishlist.desktop, badges.wishlist.mobile].forEach(badge => {
+                if(badge) {
+                    badge.textContent = wishlistCount;
+                    if(wishlistCount > 0) {
+                        badge.classList.remove('hidden');
+                    } else {
+                        badge.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            let iconClass = 'fa-check-circle text-brand-500';
+            if (type === 'heart') iconClass = 'fa-heart text-brand-500';
+            if (type === 'info') iconClass = 'fa-info-circle text-gray-500';
+            if (type === 'error') iconClass = 'fa-exclamation-circle text-red-500';
+
+            toast.className = `bg-white text-gray-800 px-6 py-3 rounded-full shadow-lg border ${type === 'error' ? 'border-red-100' : 'border-gray-100'} flex items-center space-x-3 toast-enter max-w-sm w-max`;
+            toast.innerHTML = `
+                <i class="fas ${iconClass}"></i>
+                <span class="text-sm font-medium">${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function switchView(viewName) {
+            if (viewName === 'profile' && !currentUser) {
+                openLoginModal();
+                return;
+            }
+
+            const views = ['home', 'about', 'contact', 'cart', 'shop', 'gallery', 'track', 'faqs', 'privacy', 'terms', 'refund', 'shipping', 'profile', 'wishlist'];
+            views.forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                if(el) {
+                    if(v === viewName) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                }
+            });
+
+            if (viewName === 'cart') {
+                renderCart();
+            } else if (viewName === 'wishlist') {
+                renderWishlist();
+            } else if (viewName === 'profile') {
+                renderProfileData();
+            }
+            window.scrollTo(0, 0);
+        }
+
+        function switchProfileTab(tabName) {
+            const tabs = ['orders', 'address', 'track'];
+            tabs.forEach(t => {
+                const tabEl = document.getElementById(`profile-tab-${t}`);
+                const btnEl = document.getElementById(`tab-btn-${t}`);
+                if (t === tabName) {
+                    tabEl.classList.remove('hidden');
+                    btnEl.className = "w-full text-left px-4 py-3 rounded-xl font-medium text-sm flex items-center space-x-3 bg-brand-50 text-brand-900 transition";
+                } else {
+                    tabEl.classList.add('hidden');
+                    btnEl.className = "w-full text-left px-4 py-3 rounded-xl font-medium text-sm flex items-center space-x-3 text-gray-600 hover:bg-gray-50 transition";
+                }
+            });
+        }
+
+        function renderProfileData() {
+            if (!currentUser) return;
+            
+            document.getElementById('profile-name-heading').textContent = currentUser.name;
+            document.getElementById('profile-email-heading').textContent = currentUser.email;
+            document.querySelector('.profile-initials').textContent = currentUser.name.charAt(0).toUpperCase();
+
+            document.getElementById('addr-name').textContent = userAddress.name || currentUser.name;
+            document.getElementById('addr-details').innerHTML = `${userAddress.address || 'Chandhara Pampore'}<br>${userAddress.city || 'Srinagar'}, ${userAddress.state || 'Jammu and Kashmir'} - ${userAddress.pincode || '192122'}`;
+            document.getElementById('addr-phone').innerHTML = `<i class="fas fa-phone-alt mr-1"></i> ${userAddress.phone || '+91 9103002579'}`;
+
+            const ordersList = document.getElementById('profile-orders-list');
+            const ordersCount = document.getElementById('profile-orders-count');
+            
+            ordersCount.textContent = `${userOrders.length} order${userOrders.length === 1 ? '' : 's'}`;
+
+            if (userOrders.length === 0) {
+                ordersList.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fas fa-box-open text-4xl mb-3"></i>
+                        <p class="text-sm">You haven't placed any orders yet.</p>
+                        <button onclick="switchView('shop')" class="mt-4 bg-brand-800 text-white text-xs px-5 py-2.5 rounded-lg hover:bg-brand-900 transition">Start Shopping</button>
+                    </div>
+                `;
+            } else {
+                ordersList.innerHTML = '';
+                userOrders.forEach(order => {
+                    ordersList.innerHTML += `
+                        <div class="bg-brand-50/50 p-5 rounded-xl border border-brand-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <div class="flex items-center space-x-2 mb-1">
+                                    <span class="font-bold text-brand-900">${order.id}</span>
+                                    <span class="bg-brand-100 text-brand-800 text-[10px] font-bold px-2 py-0.5 rounded-full">${order.status}</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mb-2">Placed on ${order.date} • Consignment: <span class="font-mono text-gray-700">${order.consignment}</span></p>
+                                <p class="text-xs text-gray-600 font-medium">${order.items.length} item(s) • Total: ₹${order.total.toLocaleString('en-IN')}</p>
+                            </div>
+                            <button onclick="switchView('track'); document.getElementById('tracking-number-input').value = '${order.consignment}'; handleIndiaPostTracking(new Event('submit'));" class="bg-brand-800 text-white text-xs px-4 py-2 rounded-lg hover:bg-brand-900 transition flex items-center space-x-1.5 flex-shrink-0">
+                                <i class="fas fa-truck text-xs"></i>
+                                <span>Track Order</span>
+                            </button>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateAuthUI();
+        });
+
+        function updateAuthUI() {
+            const welcomeTexts = document.querySelectorAll('.user-welcome-text');
+            const desktopAuthMenuItems = document.getElementById('desktop-auth-menu-items');
+            const mobileAuthMenuItems = document.getElementById('mobile-auth-menu-items');
+            
+            if (currentUser) {
+                welcomeTexts.forEach(el => el.textContent = `Hi, ${currentUser.name.split(' ')[0]}`);
+                const authHtml = `
+                    <a href="#" onclick="switchView('profile')" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-800 transition"><i class="fas fa-user-circle w-6 text-gray-400 text-center"></i> My Profile</a>
+                    <a href="#" onclick="switchView('profile'); switchProfileTab('address');" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-800 transition"><i class="fas fa-map-marker-alt w-6 text-gray-400 text-center"></i> Saved Address</a>
+                    <a href="#" onclick="switchView('profile'); switchProfileTab('orders');" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-800 transition"><i class="fas fa-box w-6 text-gray-400 text-center"></i> Your Orders</a>
+                    <a href="#" onclick="switchView('track')" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-800 transition"><i class="fas fa-truck w-6 text-gray-400 text-center"></i> Track Order</a>
+                    <div class="border-t border-gray-100 my-1"></div>
+                    <a href="#" onclick="logoutUser()" class="block px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition"><i class="fas fa-sign-out-alt w-6 text-center"></i> Logout</a>
+                `;
+                if(desktopAuthMenuItems) desktopAuthMenuItems.innerHTML = authHtml;
+                if(mobileAuthMenuItems) mobileAuthMenuItems.innerHTML = authHtml;
+            } else {
+                welcomeTexts.forEach(el => el.textContent = `Welcome`);
+                const nonAuthHtml = `
+                    <a href="#" onclick="openLoginModal()" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-800 transition"><i class="fas fa-sign-in-alt w-6 text-gray-400 text-center"></i> Login / Register</a>
+                    <a href="#" onclick="switchView('track')" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-800 transition"><i class="fas fa-truck w-6 text-gray-400 text-center"></i> Track Order</a>
+                `;
+                if(desktopAuthMenuItems) desktopAuthMenuItems.innerHTML = nonAuthHtml;
+                if(mobileAuthMenuItems) mobileAuthMenuItems.innerHTML = nonAuthHtml;
+            }
+        }
+
+        function loginUser(user) {
+            currentUser = user;
+            localStorage.setItem('hk_user', JSON.stringify(user));
+            updateAuthUI();
+            showToast(`Welcome back, ${user.name}!`, 'success');
+            
+            switchView('profile');
+        }
+
+        function logoutUser() {
+            currentUser = null;
+            localStorage.removeItem('hk_user');
+            updateAuthUI();
+            showToast('Logged out successfully', 'info');
+            switchView('home');
+            
+            document.getElementById('desktop-user-dropdown').classList.add('hidden');
+            document.getElementById('mobile-user-dropdown').classList.add('hidden');
+        }
+
+        function openLoginModal() {
+            const desktopDropdown = document.getElementById('desktop-user-dropdown');
+            const mobileDropdown = document.getElementById('mobile-user-dropdown');
+            if(desktopDropdown) desktopDropdown.classList.add('hidden');
+            if(mobileDropdown) mobileDropdown.classList.add('hidden');
+            
+            const modal = document.getElementById('login-modal');
+            const content = document.getElementById('login-modal-content');
+            
+            if(!isLoginMode) toggleAuthMode();
+            document.getElementById('auth-form').reset();
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeLoginModal() {
+            const modal = document.getElementById('login-modal');
+            const content = document.getElementById('login-modal-content');
+            
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        let isLoginMode = true;
+
+        function toggleAuthMode() {
+            isLoginMode = !isLoginMode;
+            
+            const title = document.getElementById('auth-title');
+            const subtitle = document.getElementById('auth-subtitle');
+            const nameField = document.getElementById('name-field');
+            const nameInput = document.getElementById('auth-name');
+            const submitBtn = document.getElementById('auth-submit-btn');
+            const toggleText = document.getElementById('auth-toggle-text');
+            const toggleBtn = document.getElementById('auth-toggle-btn');
+            
+            if (isLoginMode) {
+                title.textContent = "Welcome Back";
+                subtitle.textContent = "Log in to your account to continue";
+                nameField.classList.add('hidden');
+                nameInput.removeAttribute('required');
+                submitBtn.textContent = "Sign In";
+                toggleText.textContent = "Don't have an account?";
+                toggleBtn.textContent = "Sign Up";
+            } else {
+                title.textContent = "Create Account";
+                subtitle.textContent = "Join us for premium natural products";
+                nameField.classList.remove('hidden');
+                nameInput.setAttribute('required', 'true');
+                submitBtn.textContent = "Create Account";
+                toggleText.textContent = "Already have an account?";
+                toggleBtn.textContent = "Sign In";
+            }
+        }
+
+        function handleAuthSubmit(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('auth-email').value.trim().toLowerCase();
+            const password = document.getElementById('auth-password').value;
+            
+            if (isLoginMode) {
+                if (usersDB[email] && usersDB[email].password === password) {
+                    loginUser({ name: usersDB[email].name, email: email });
+                    closeLoginModal();
+                } else {
+                    showToast('Invalid email or password', 'error');
+                }
+            } else {
+                const name = document.getElementById('auth-name').value.trim();
+                
+                if (usersDB[email]) {
+                    showToast('An account with this email already exists', 'error');
+                } else {
+                    usersDB[email] = { name: name, password: password };
+                    localStorage.setItem('hk_users_db', JSON.stringify(usersDB));
+                    loginUser({ name: name, email: email });
+                    closeLoginModal();
+                    showToast('Account created successfully!', 'success');
+                }
+            }
+        }
+
+        function simulateGoogleLogin() {
+            showToast('Authenticating with Google...', 'info');
+            const btn = event.currentTarget;
+            btn.style.opacity = '0.5';
+            btn.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                const googleUser = {
+                    name: "Valued Customer",
+                    email: "customer@gmail.com",
+                    provider: "google"
+                };
+                loginUser(googleUser);
+                closeLoginModal();
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
